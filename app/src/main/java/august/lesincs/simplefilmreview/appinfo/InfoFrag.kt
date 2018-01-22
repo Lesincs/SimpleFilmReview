@@ -12,11 +12,10 @@ import august.lesincs.simplefilmreview.R
  * Created by Administrator on 2017/9/4.
  */
 class InfoFrag : PreferenceFragmentCompat() {
+
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.frag_info)
-
         findPreference("GMail").setOnPreferenceClickListener {
-
             try {
                 val uri = Uri.parse(getString(R.string.mail_to_GMail))
                 val intent = Intent(Intent.ACTION_SENDTO, uri)
@@ -45,14 +44,12 @@ class InfoFrag : PreferenceFragmentCompat() {
             }
             true
         }
-
         findPreference("open_source").setOnPreferenceClickListener {
             val url = getText(R.string.open_source_summary).toString()
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
             startActivity(intent)
             true
         }
-
         findPreference("github_address").setOnPreferenceClickListener {
             val url = getText(R.string.github_address_summary).toString()
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))

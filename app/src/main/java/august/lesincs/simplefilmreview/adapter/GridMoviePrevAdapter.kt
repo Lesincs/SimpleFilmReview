@@ -24,15 +24,15 @@ const val MOVIE_ID = "MOVIE_ID"
 const val MOVIE_SUBJECT = "MOVIE_SUBJECT"
 
 class MoviePrevAdapter(val subjects: ArrayList<Subject>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
     lateinit var context: Context
     private val ITEM_TYPE_MOVIE = 1
     private val ITEM_TYPE_PROGRESSBAR = 2
     var isShowProgressBar = true
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
 
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
         if (holder is NormalViewHolder) {
             val movie = subjects[position]
-
             with(holder.itemView) {
                 Glide.with(context).load(movie.images.large)
                         .placeholder(R.drawable.img_movie_prev_place_holder)
@@ -42,12 +42,9 @@ class MoviePrevAdapter(val subjects: ArrayList<Subject>) : RecyclerView.Adapter<
                 tvMovieRateIMPG.text = movie.rating.average.toString()
                 rbMovieRateIMPG.rating = movie.rating.average.toFloat() / 2
             }
-
         } else {
-
             val p = holder!!.itemView.layoutParams as StaggeredGridLayoutManager.LayoutParams
             p.isFullSpan = true
-
             if (isShowProgressBar) {
                 holder.itemView.layoutParams.height = -2
             } else {
@@ -62,14 +59,12 @@ class MoviePrevAdapter(val subjects: ArrayList<Subject>) : RecyclerView.Adapter<
     inner class NormalViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         init {
             itemView.setOnClickListener {
-
                 val intent = Intent(context, CommentActivity::class.java)
                 intent.putExtra(MOVIE_ID, subjects[adapterPosition].id)
                 val options = ActivityOptionsCompat.makeSceneTransitionAnimation(context as Activity, itemView.ivMoviePosterIMPG as View, "movie_poster");
                 intent.putExtra(MOVIE_SUBJECT, subjects[adapterPosition])
                 (context as Activity).startActivity(intent, options.toBundle())
             }
-
         }
     }
 
@@ -81,8 +76,6 @@ class MoviePrevAdapter(val subjects: ArrayList<Subject>) : RecyclerView.Adapter<
             ITEM_TYPE_MOVIE -> NormalViewHolder(LayoutInflater.from(context).inflate(R.layout.item_movie_prev_grid, parent, false))
             else -> ProgressBarViewHolder(LayoutInflater.from(context).inflate(R.layout.item_progress_bar, parent, false))
         }
-
-
     }
 
     override fun getItemCount(): Int = subjects.size + 1

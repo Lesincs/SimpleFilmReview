@@ -16,6 +16,7 @@ class CollectionActivity : AppCompatActivity() {
     private var collectionMovieCount = 0
     private val dbSubjects = ArrayList<DBSubject>()
     private val adapter = CollectionMovieAdapter(dbSubjects)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_collection)

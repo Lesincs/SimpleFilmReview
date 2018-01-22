@@ -16,8 +16,8 @@ class MyApp() : Application() {
         super.onCreate()
         context = applicationContext
         LitePal.initialize(context)
-
     }
+
     companion object {
         lateinit var context:Context
     }

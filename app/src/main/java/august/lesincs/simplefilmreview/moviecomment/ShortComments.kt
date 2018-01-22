@@ -27,6 +27,12 @@ import retrofit2.converter.gson.GsonConverterFactory
  * Created by Administrator on 2017/10/14.
  */
 class ShortCommentsFrag : ShortCommentsContract.View, LazyInitFragment() {
+
+    val comments = ArrayList<Comment>()
+    lateinit var mAdaper: ShortCommentsAdapter
+    lateinit var mLinearLayoutManager: LinearLayoutManager
+    val mPresenter: ShortCommentsContract.Presenter by lazyOf(ShortCommentsPresenter(this))
+
     override fun showNetWorkError() {
         s_tv_network_error.visibility = View.VISIBLE
     }
@@ -73,16 +79,8 @@ class ShortCommentsFrag : ShortCommentsContract.View, LazyInitFragment() {
         mPresenter.onStart()
     }
 
-
-    val comments = ArrayList<Comment>()
-    lateinit var mAdaper: ShortCommentsAdapter
-    lateinit var mLinearLayoutManager: LinearLayoutManager
-    val mPresenter: ShortCommentsContract.Presenter by lazyOf(ShortCommentsPresenter(this))
-
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
         mAdaper = ShortCommentsAdapter(comments)
         mLinearLayoutManager = LinearLayoutManager(context)
         mRecyclerViewShortComments.layoutManager = mLinearLayoutManager
@@ -113,12 +111,9 @@ class ShortCommentsFrag : ShortCommentsContract.View, LazyInitFragment() {
         this.comments.clear()
         this.comments.addAll(comments)
         mAdaper.notifyDataSetChanged()
-
-
     }
 
     override fun showMoreShortComments(comments: List<Comment>) {
-
         val position = this.comments.size
         this.comments.addAll(comments)
         mAdaper.notifyItemRangeChanged(position, comments.size)
@@ -195,8 +190,6 @@ class ShortCommentsPresenter(val view: ShortCommentsContract.View) : ShortCommen
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : MyObserver<List<Comment>>() {
                     override fun onNext(t: List<Comment>) {
-
-
                         if (t.isEmpty()) {
                             view.showNoComments()
                             view.clearOnScrollListener()
@@ -204,12 +197,10 @@ class ShortCommentsPresenter(val view: ShortCommentsContract.View) : ShortCommen
                         } else if (t.size < 20) {
                             view.hideProgressBar()
                             view.clearOnScrollListener()
-
                         } else {
                             view.showNewestShortComments(t)
                             view.addOnScrollListener()
                         }
-
                     }
 
                     override fun onError(e: Throwable) {
@@ -225,14 +216,11 @@ class ShortCommentsPresenter(val view: ShortCommentsContract.View) : ShortCommen
                         view.hideProgressBar()
                         view.showNetWorkError()
                     }
-
-
                 })
 
     }
 
     override fun loadMoreShortComments() {
-
         if (!isLoading) {
             isLoading = true
             model.getShortCommentsBean(view.getMovieId(), view.getCurrentShortCommentCount())
@@ -249,24 +237,19 @@ class ShortCommentsPresenter(val view: ShortCommentsContract.View) : ShortCommen
                             } else {
                                 view.showMoreShortComments(t)
                             }
-
                         }
-
                         override fun onError(e: Throwable) {
                             isLoading = false
                             view.snackNoMoreShortCommentsMsg()
                             view.clearOnScrollListener()
                             view.hideProgressBar()
                         }
-
                         override fun onNetWorkNotAvailable() {
                             isLoading = false
                             view.snackNetworkError()
                             view.hideProgressBar()
                             view.clearOnScrollListener()
                         }
-
-
                     })
         }
     }

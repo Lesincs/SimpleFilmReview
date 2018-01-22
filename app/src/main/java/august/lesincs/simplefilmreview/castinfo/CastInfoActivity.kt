@@ -28,14 +28,15 @@ const val ROLE_WRITER = "编剧"
 const val ROLE_DIRECTOR = "导演"
 
 class CastInfoActivity : AppCompatActivity() {
+
     val subjects = ArrayList<Subject>()
     val adapter by lazyOf(LinearMoviePrevAdapter(subjects))
     val progressDialog by lazy { ProgressDialog(this).apply { setCancelable(false);setMessage(getString(R.string.loading)) } }
-     var url: String? =null
+    var url: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cast_info)
-
         initView()
         handleIntentData()
         getRemoteData()
@@ -59,12 +60,11 @@ class CastInfoActivity : AppCompatActivity() {
     }
 
     private fun getRemoteData() {
-       progressDialog.show()
+        progressDialog.show()
         DoubanRetrofit.create(CastInfoService::class.java).getCastInfo(intent.getStringExtra(CAST_ID))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-
                     tvCastNameACI.append(it.name)
                     tvEnglishNameACI.append(it.name_en)
                     tvConstellationACI.append(it.constellation)
@@ -73,38 +73,42 @@ class CastInfoActivity : AppCompatActivity() {
                     tvBirthAreaACI.append(it.born_place)
                     tvCastSummary.text = it.summary
                     it.works.forEach {
-
                         subjects.add(it.subject)
                     }
                     adapter.notifyDataSetChanged()
                     url = it.alt
                     progressDialog.dismiss()
-
-                }, {progressDialog.dismiss()
-                    Snackbar.make(toolbar,R.string.server_error, Snackbar.LENGTH_SHORT).show()})
+                }, {
+                    progressDialog.dismiss()
+                    Snackbar.make(toolbar, R.string.server_error, Snackbar.LENGTH_SHORT).show()
+                })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_open_with_browser, menu)
         return super.onCreateOptionsMenu(menu)
     }
+
     override fun onBackPressed() {
         finish()
-        overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
     }
+
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
-
-            android.R.id.home -> {overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)}
+            android.R.id.home -> {
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+            }
             R.id.action_open_with_browser -> {
-
-                url?.let {  val intent = Intent()
+                url?.let {
+                    val intent = Intent()
                     intent.action = Intent.ACTION_VIEW
                     intent.data = Uri.parse(url)
-                    startActivity(intent) }
-
+                    startActivity(intent)
+                }
             }
         }
         return super.onOptionsItemSelected(item)
     }
+
 }

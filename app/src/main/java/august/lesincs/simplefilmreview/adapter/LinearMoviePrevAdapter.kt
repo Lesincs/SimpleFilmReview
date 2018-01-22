@@ -25,19 +25,14 @@ class LinearMoviePrevAdapter(val subjects: ArrayList<Subject>) : RecyclerView.Ad
     private val ITEM_TYPE_MOVIE = 1
     private val ITEM_TYPE_PROGRESSBAR = 2
     var isShowProgressBar = true
+
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
-
-
         if (holder is NormalViewHolder) {
             val movie = subjects[position]
-
             with(holder.itemView) {
-
                 //防止回收复用
-
                 tvMovieTypeIMPL.text = context.getText(R.string.movie_type_base)
                 tvMovieActorsIMPL.text = context.getText(R.string.movie_actors_base)
-
                 Glide.with(context).load(movie.images.large)
                         .placeholder(R.drawable.img_movie_prev_place_holder)
                         .crossFade()
@@ -45,8 +40,6 @@ class LinearMoviePrevAdapter(val subjects: ArrayList<Subject>) : RecyclerView.Ad
                 tvMovieNameIMPL.text = movie.title
                 tvMovieRateIMPL.text = movie.rating.average.toString()
                 rbMovieRateIMPL.rating = movie.rating.average.toFloat() / 2
-
-
                 val set = HashSet<String>(movie.genres)
                 set.forEachIndexed { index, s ->
                     if (index != set.size - 1) {
@@ -64,13 +57,10 @@ class LinearMoviePrevAdapter(val subjects: ArrayList<Subject>) : RecyclerView.Ad
                     }
                 }
             }
-
         } else {
-
             if (!isShowProgressBar || itemCount == 1) {
                 holder?.itemView?.layoutParams?.height = 0
             } else {
-
                 holder?.itemView?.layoutParams?.height = -2
             }
         }
@@ -78,17 +68,14 @@ class LinearMoviePrevAdapter(val subjects: ArrayList<Subject>) : RecyclerView.Ad
     }
 
     inner class NormalViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
         init {
             itemView.setOnClickListener {
-
                 val intent = Intent(context, CommentActivity::class.java)
                 intent.putExtra(MOVIE_ID, subjects[adapterPosition].id)
                 val options = ActivityOptionsCompat.makeSceneTransitionAnimation(context as Activity, itemView.ivMoviePosterIMPL as View, "movie_poster");
                 intent.putExtra(MOVIE_SUBJECT, subjects[adapterPosition])
                 (context as Activity).startActivity(intent, options.toBundle())
             }
-
         }
     }
 

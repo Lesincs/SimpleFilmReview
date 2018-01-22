@@ -17,10 +17,11 @@ import kotlinx.android.synthetic.main.item_cast_movie.view.*
 class CastMovieAdapter(val subjects: List<Subject>) : RecyclerView.Adapter<CastMovieAdapter.ViewHolder>() {
 
     lateinit var context: Context
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder.itemView) {
             val subject = subjects[position]
-            tvRatingICM.text = subject.rating.average.toString()+"评分"
+            tvRatingICM.text = subject.rating.average.toString() + "评分"
             Glide.with(context).load(subject.images.large).into(ivMoviePosterICM)
         }
     }

@@ -5,11 +5,11 @@
 ### 2.下载地址
 https://www.coolapk.com/apk/august.lesincs.simplefilmreview
 ### 3.截图
-![image](https://github.com/Lesincs/SimpleFilmReview/raw/master/screenshots/Screenshot1.jpg =90x160)
-![image](https://github.com/Lesincs/SimpleFilmReview/raw/master/screenshots/Screenshot2.jpg =90x160)
-![image](https://github.com/Lesincs/SimpleFilmReview/raw/master/screenshots/Screenshot3.jpg =90x160)
-![image](https://github.com/Lesincs/SimpleFilmReview/raw/master/screenshots/Screenshot4.jpg =90x160)
-![image](https://github.com/Lesincs/SimpleFilmReview/raw/master/screenshots/Screenshot5.jpg =90x160)
+![image](https://github.com/Lesincs/SimpleFilmReview/raw/master/screenshots/Screenshot1.jpg)
+![image](https://github.com/Lesincs/SimpleFilmReview/raw/master/screenshots/Screenshot2.jpg)
+![image](https://github.com/Lesincs/SimpleFilmReview/raw/master/screenshots/Screenshot3.jpg)
+![image](https://github.com/Lesincs/SimpleFilmReview/raw/master/screenshots/Screenshot4.jpg)
+![image](https://github.com/Lesincs/SimpleFilmReview/raw/master/screenshots/Screenshot5.jpg)
 ### 4.主要用到的技术
 1.使用Rxkotlin+Retrofit进行网络请求</br>
 2.使用Glide进行图片加载</br>

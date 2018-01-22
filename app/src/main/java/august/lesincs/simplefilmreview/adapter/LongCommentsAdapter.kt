@@ -25,13 +25,13 @@ class LongCommentsAdapter(val reviews: ArrayList<Review>) : RecyclerView.Adapter
     lateinit var context: Context
     var isShowProgressBar = true
 
-
     inner class NormalHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+
     inner class ProgressHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     override fun getItemCount(): Int = reviews.size + 1
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
 
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
         if (holder is NormalHolder) {
             val review = reviews[position]
             with(holder.itemView) {
@@ -46,10 +46,10 @@ class LongCommentsAdapter(val reviews: ArrayList<Review>) : RecyclerView.Adapter
                 setOnClickListener {
                     val bottomSheetFrag = BottomSheetDialog(context)
                     val view = LayoutInflater.from(context).inflate(R.layout.dialog_long_comments_detail, null)
-                    with(view){
+                    with(view) {
                         tvCommentTitleDLCD.text = review.title
-                        ivDismissDialogDLCD.setOnClickListener { bottomSheetFrag.dismiss()}
-                        tvFullCommentDLCD.text=review.content
+                        ivDismissDialogDLCD.setOnClickListener { bottomSheetFrag.dismiss() }
+                        tvFullCommentDLCD.text = review.content
                     }
                     bottomSheetFrag.setContentView(view)
                     val behavior = BottomSheetBehavior.from(view.parent as View)
@@ -64,7 +64,6 @@ class LongCommentsAdapter(val reviews: ArrayList<Review>) : RecyclerView.Adapter
                 holder?.itemView?.layoutParams?.height = 0
             }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
@@ -77,7 +76,6 @@ class LongCommentsAdapter(val reviews: ArrayList<Review>) : RecyclerView.Adapter
 
 
     override fun getItemViewType(position: Int): Int {
-
         return when (position) {
             itemCount - 1 -> ITEM_TYPE_PROGRESSBAR
             else -> {

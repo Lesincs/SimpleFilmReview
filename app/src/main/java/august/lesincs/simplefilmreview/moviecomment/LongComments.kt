@@ -26,6 +26,12 @@ import retrofit2.converter.gson.GsonConverterFactory
  * Created by Administrator on 2017/10/14.
  */
 class LongCommentsFrag : LongCommentsContract.View, LazyInitFragment() {
+
+    val mPresenter: LongCommentsContract.Presenter = LongCommentsPresenter(this)
+    lateinit var mAdapter: LongCommentsAdapter
+    lateinit var mLinearlayoutManager: LinearLayoutManager
+    private val reviews = ArrayList<Review>()
+
     override fun showNetworkError() {
         l_tv_network_error.visibility = View.VISIBLE
     }
@@ -72,28 +78,16 @@ class LongCommentsFrag : LongCommentsContract.View, LazyInitFragment() {
         mPresenter.onStart()
     }
 
-
-    val mPresenter: LongCommentsContract.Presenter = LongCommentsPresenter(this)
-    lateinit var mAdapter: LongCommentsAdapter
-    lateinit var mLinearlayoutManager: LinearLayoutManager
-    private val reviews = ArrayList<Review>()
-
-
     override fun showNewestLongComments(reviews: List<Review>) {
         this.reviews.clear()
         this.reviews.addAll(reviews)
         mAdapter.notifyDataSetChanged()
-
-
     }
 
     override fun showMoreLongComments(reviews: List<Review>) {
-
         val position = this.reviews.size
         this.reviews.addAll(reviews)
         mAdapter.notifyItemRangeChanged(position, reviews.size)
-
-
     }
 
     override fun getCurrentLongCommentCount(): Int {
@@ -108,14 +102,12 @@ class LongCommentsFrag : LongCommentsContract.View, LazyInitFragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         mAdapter = LongCommentsAdapter(reviews)
         mLinearlayoutManager = LinearLayoutManager(context)
         mRecyclerViewLongComments.adapter = mAdapter
         mRecyclerViewLongComments.layoutManager = mLinearlayoutManager
         mRecyclerViewLongComments.itemAnimator = DefaultItemAnimator()
         mRecyclerViewLongComments.addOnScrollListener(onScrollListener)
-
     }
 
     private val onScrollListener = object : RecyclerView.OnScrollListener() {
@@ -194,9 +186,7 @@ class LongCommentsPresenter(val view: LongCommentsContract.View) : LongCommentsC
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : MyObserver<List<Review>>() {
                     override fun onNext(t: List<Review>) {
-
                         if (t.isEmpty()) {
-
                             view.showNoComments()
                             view.hideProgressBar()
                             view.clearOnScrollListener()
@@ -207,9 +197,7 @@ class LongCommentsPresenter(val view: LongCommentsContract.View) : LongCommentsC
                         } else {
                             view.showNewestLongComments(t)
                             view.addOnScrollListener()
-
                         }
-
                     }
 
                     override fun onError(e: Throwable) {
@@ -229,10 +217,8 @@ class LongCommentsPresenter(val view: LongCommentsContract.View) : LongCommentsC
     }
 
     override fun loadMoreLongComments() {
-
         if (!isLoading) {
             isLoading = true
-
             model.getLongCommentsBean(view.getMovieId(), view.getCurrentLongCommentCount())
                     .map { model.getReviews(it) }
                     .subscribeOn(Schedulers.io())
@@ -248,14 +234,12 @@ class LongCommentsPresenter(val view: LongCommentsContract.View) : LongCommentsC
                                 view.showMoreLongComments(t)
                             }
                         }
-
                         override fun onError(e: Throwable) {
                             isLoading = false
                             view.snackServerError()
                             view.hideProgressBar()
                             view.clearOnScrollListener()
                         }
-
                         override fun onNetWorkNotAvailable() {
                             isLoading = false
                             view.snackNetworkError()

@@ -10,9 +10,7 @@ abstract class MyObserver<T> : Observer<T> {
 
     abstract override fun onNext(t: T)
 
-
     abstract override fun onError(e: Throwable)
-
 
     override fun onSubscribe(d: Disposable) {
         if (!NetWorkUtil.isNetWorkAvailable()) {
@@ -23,8 +21,6 @@ abstract class MyObserver<T> : Observer<T> {
 
     abstract fun onNetWorkNotAvailable()
 
-    override fun onComplete() {
-    }
-
+    override fun onComplete() {}
 
 }

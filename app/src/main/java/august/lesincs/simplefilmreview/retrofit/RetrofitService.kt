@@ -17,6 +17,7 @@ const val DOUBAN_BASE_URL: String = "http://api.douban.com/v2/movie/"
 const val DOUBAN_API_KEY = "0b2bdeda43b5688921839c8ecb20399b"
 const val DOUBAN_CLIENT = "923"
 const val DOUBAN_UDID = "459"
+
 val DoubanRetrofit: Retrofit
     get() {
         return Retrofit.Builder()

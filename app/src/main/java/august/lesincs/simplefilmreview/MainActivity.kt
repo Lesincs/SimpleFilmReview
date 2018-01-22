@@ -10,8 +10,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import august.lesincs.simplefilmreview.adapter.FragAdapter
-import august.lesincs.simplefilmreview.collection.CollectionActivity
 import august.lesincs.simplefilmreview.appinfo.InfoActivity
+import august.lesincs.simplefilmreview.collection.CollectionActivity
 import august.lesincs.simplefilmreview.movieprev.MOVIE_PREV_TYPE
 import august.lesincs.simplefilmreview.movieprev.MoviePrevFrag
 import august.lesincs.simplefilmreview.movieprev.MoviePrevType
@@ -22,6 +22,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     private var lastOnBackPressTime = 0L
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -33,7 +34,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.title = getText(R.string.app_name)
         viewPageAM.offscreenPageLimit = 2
         val titles = arrayListOf<String>(getString(R.string.tab_douban250), getString(R.string.tab_trending), getString(R.string.tab_coming_soon))
-
         //初始化frag的时候设置参数 以加载不同类别电影
         val frags = arrayListOf<Fragment>(
                 MoviePrevFrag().apply { arguments = Bundle().apply { putSerializable(MOVIE_PREV_TYPE, MoviePrevType.TOP250) } },
@@ -42,7 +42,6 @@ class MainActivity : AppCompatActivity() {
         )
         viewPageAM.adapter = FragAdapter(supportFragmentManager, titles, frags)
         tabLayoutAM.setupWithViewPager(viewPageAM, true)
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -52,7 +51,6 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-
         when (item?.itemId) {
             R.id.action_search -> {
                 startActivity(Intent(this, SearchActivity::class.java))
@@ -61,7 +59,6 @@ class MainActivity : AppCompatActivity() {
             R.id.action_collection -> startActivity(Intent(this, CollectionActivity::class.java))
             R.id.action_about -> startActivity(Intent(this, InfoActivity::class.java))
         }
-
         return super.onOptionsItemSelected(item)
     }
 
@@ -75,7 +72,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-
 
 //扩展函数 方便toast
 fun Context.toast(msg: String) {

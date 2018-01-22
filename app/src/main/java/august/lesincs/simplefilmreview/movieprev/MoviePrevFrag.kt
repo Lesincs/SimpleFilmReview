@@ -18,13 +18,19 @@ import kotlinx.android.synthetic.main.frag_movie_prev.*
 const val MOVIE_PREV_TYPE = "MOVIE_PREV_TYPE"
 
 class MoviePrevFrag : MoviePrevContract.View, LazyInitFragment() {
+
+    val mPresenter: MoviePrevContract.Presenter  by lazyOf(MoviePrevPresenter(this))
+    lateinit var mAdapter: MoviePrevAdapter
+    lateinit var mStaggeredGridLayoutManager: StaggeredGridLayoutManager
+    val subjects: ArrayList<Subject> by lazyOf(ArrayList())
+
     override fun clearAllMovie() {
         subjects.clear()
         mAdapter.notifyDataSetChanged()
     }
 
     override fun showRefreshIndicator() {
-        mSwipeRefreshLayout.isRefreshing =true
+        mSwipeRefreshLayout.isRefreshing = true
     }
 
     override fun hideServerError() {
@@ -71,19 +77,14 @@ class MoviePrevFrag : MoviePrevContract.View, LazyInitFragment() {
 
 
     override fun addOnScrollListener() {
-       onScrollListener.isWorking = true
+        onScrollListener.isWorking = true
     }
 
     override fun clearOnScrollListener() {
-       onScrollListener.isWorking =false
+        onScrollListener.isWorking = false
     }
 
-    val mPresenter: MoviePrevContract.Presenter  by lazyOf(MoviePrevPresenter(this))
-    lateinit var mAdapter: MoviePrevAdapter
-    lateinit var mStaggeredGridLayoutManager: StaggeredGridLayoutManager
-    val subjects: ArrayList<Subject> by lazyOf(ArrayList())
     override fun getLayoutId(): Int = R.layout.frag_movie_prev
-
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -113,35 +114,27 @@ class MoviePrevFrag : MoviePrevContract.View, LazyInitFragment() {
         mAdapter.notifyItemRangeChanged(position, subjects.size)
     }
 
-
     override fun getCurrentMovieCount(): Int = mAdapter.itemCount - 1
 
-
     override fun getMoviePrevType(): MoviePrevType {
-
         return arguments[MOVIE_PREV_TYPE] as MoviePrevType
-
     }
 
-
     private val onScrollListener = object : RecyclerView.OnScrollListener() {
-        var isWorking= true
+        var isWorking = true
         var isPullUp = false
         override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
-
             val lastVisibleItem = mStaggeredGridLayoutManager.findLastCompletelyVisibleItemPositions(kotlin.IntArray(3))[2]
             //在加载三组之后可以加载更多
-            if (lastVisibleItem+1>=mAdapter.itemCount-1-6&&isPullUp&&isWorking)
-            {
+            if (lastVisibleItem + 1 >= mAdapter.itemCount - 1 - 6 && isPullUp && isWorking) {
                 mPresenter.loadMoreMovies()
             }
-
         }
 
         override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
             super.onScrolled(recyclerView, dx, dy)
-            isPullUp = dy>0
+            isPullUp = dy > 0
         }
     }
 }

@@ -18,20 +18,19 @@ class ShortCommentsAdapter(val comments: List<Comment>) : RecyclerView.Adapter<R
     private val ITEM_TYPE_COMMENT = 1
     private val ITEM_TYPE_PROGRESSBAR = 2
     var isShowProgressBar = true
-
+    lateinit var context: Context
 
     override fun getItemViewType(position: Int): Int {
         return when (position) {
             itemCount - 1 -> ITEM_TYPE_PROGRESSBAR
-
             else -> ITEM_TYPE_COMMENT
         }
     }
 
-    lateinit var context: Context
     override fun getItemCount(): Int = comments.size + 1
 
     inner class NormalViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+
     inner class ProgressBarViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder? {
@@ -40,11 +39,9 @@ class ShortCommentsAdapter(val comments: List<Comment>) : RecyclerView.Adapter<R
             ITEM_TYPE_COMMENT -> NormalViewHolder(LayoutInflater.from(context).inflate(R.layout.item_short_comments, parent, false))
             else -> ProgressBarViewHolder(LayoutInflater.from(context).inflate(R.layout.item_progress_bar, parent, false))
         }
-
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-
         if (holder is NormalViewHolder) {
             val comment = comments[position]
             with(holder.itemView) {

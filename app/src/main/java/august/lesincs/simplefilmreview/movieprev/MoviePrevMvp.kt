@@ -18,16 +18,14 @@ import retrofit2.converter.gson.GsonConverterFactory
  * Created by Administrator on 2017/10/21.
  */
 class MoviePrevModel : MoviePrevContract.Model {
+
     override fun getMoviePrevBean(start: Int, moviePrevType: MoviePrevType): Observable<MoviePrevBean> {
-
-
         val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .baseUrl(DOUBAN_BASE_URL)
                 .build()
         return when (moviePrevType) {
-
             MoviePrevType.TOP250 -> retrofit.create(Top250Service::class.java).getTop250Movies(start)
             MoviePrevType.INTHRATERS -> retrofit.create(InTheatersService::class.java).getInTheaterMovies(start)
             MoviePrevType.COMINGSOON -> retrofit.create(ComingSoonService::class.java).getComingSoonMovies(start)
@@ -101,7 +99,6 @@ class MoviePrevPresenter(val view: MoviePrevContract.View) : MoviePrevContract.P
                             } else {
                                 view.showMoreMovies(t)
                             }
-
                         }
 
                         override fun onError(e: Throwable) {

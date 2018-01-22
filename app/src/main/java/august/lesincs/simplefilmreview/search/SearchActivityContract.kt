@@ -10,9 +10,7 @@ import io.reactivex.Observable
 
 interface SearchActivityContract {
 
-
     interface View {
-
         fun showTagBox()
         fun hideTagBox()
         fun showNoSearchResult()
@@ -36,7 +34,6 @@ interface SearchActivityContract {
         fun showProgressDialog()
         fun hideProgressDialog()
         fun hideSoftKeyboard()
-
     }
 
     interface Model{
@@ -45,4 +42,5 @@ interface SearchActivityContract {
     }
 
     interface Presenter
+
 }

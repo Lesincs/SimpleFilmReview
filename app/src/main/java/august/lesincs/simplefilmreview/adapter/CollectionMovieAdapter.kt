@@ -21,13 +21,13 @@ import kotlinx.android.synthetic.main.item_movie_prev_grid.view.*
 class CollectionMovieAdapter(val dbSubjects: List<DBSubject>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     lateinit var context: Context
+
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
         context = parent?.context!!
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_movie_prev_grid, parent, false))
     }
 
     inner private class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
         init {
             view.setOnClickListener({
                 val intent = Intent(context, CommentActivity::class.java)
@@ -42,9 +42,7 @@ class CollectionMovieAdapter(val dbSubjects: List<DBSubject>) : RecyclerView.Ada
 
     override fun getItemCount(): Int = dbSubjects.size
 
-
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
-
         with(holder!!.itemView) {
             val dbSubject = dbSubjects[position]
             Glide.with(context).load(dbSubject.imageUrl).into(ivMoviePosterIMPG)
@@ -53,6 +51,5 @@ class CollectionMovieAdapter(val dbSubjects: List<DBSubject>) : RecyclerView.Ada
             rbMovieRateIMPG.rating = dbSubject.rating / 2
         }
     }
-
 
 }

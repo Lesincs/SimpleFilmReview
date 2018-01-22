@@ -24,10 +24,6 @@ import java.util.*
 
 class SearchActivity : SearchActivityContract.View, AppCompatActivity(), View.OnClickListener {
 
-    override fun onClick(p0: View?) {
-        onTagClick((p0 as TextView).text.toString())
-    }
-
     lateinit var mLinearLayoutManager: LinearLayoutManager
     lateinit var mAdapter: LinearMoviePrevAdapter
     val presenter by lazyOf(SearchActivityPresenter(this))
@@ -37,6 +33,7 @@ class SearchActivity : SearchActivityContract.View, AppCompatActivity(), View.On
     var currentDisposable: Disposable? = null
     var isTag = false
     var currentTag: String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
@@ -44,8 +41,11 @@ class SearchActivity : SearchActivityContract.View, AppCompatActivity(), View.On
         initTagView()
     }
 
-    private fun onTagClick(tag: String) {
+    override fun onClick(p0: View?) {
+        onTagClick((p0 as TextView).text.toString())
+    }
 
+    private fun onTagClick(tag: String) {
         isTag = true
         currentTag = tag
         presenter.loadFirstTagMovies(currentTag)
@@ -136,9 +136,7 @@ class SearchActivity : SearchActivityContract.View, AppCompatActivity(), View.On
                 }
             }
 
-            override fun afterTextChanged(p0: Editable?) {
-
-            }
+            override fun afterTextChanged(p0: Editable?) {}
         })
 
     }
@@ -150,10 +148,8 @@ class SearchActivity : SearchActivityContract.View, AppCompatActivity(), View.On
             super.onScrollStateChanged(recyclerView, newState)
             if (isWorking) {
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-
                     val lastItemPosition = mLinearLayoutManager.findLastCompletelyVisibleItemPosition()
                     val totalCount = mLinearLayoutManager.itemCount
-
                     if (lastItemPosition + 1 >= totalCount - 1) {
                         if (isTag) {
                             presenter.loadMoreTagMovies(currentTag, currentItemCount)
@@ -173,7 +169,6 @@ class SearchActivity : SearchActivityContract.View, AppCompatActivity(), View.On
 
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-
         if (item?.itemId == android.R.id.home) {
             onBackPressed()
         }
@@ -245,7 +240,6 @@ class SearchActivity : SearchActivityContract.View, AppCompatActivity(), View.On
     }
 
     override fun showMoreSearchResult(subjects: List<Subject>) {
-
         if (tag_box.visibility == View.INVISIBLE) {
             this.subjects.addAll(subjects)
             mAdapter.notifyDataSetChanged()

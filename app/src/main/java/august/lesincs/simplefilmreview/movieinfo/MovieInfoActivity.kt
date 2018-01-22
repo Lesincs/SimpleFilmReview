@@ -25,9 +25,11 @@ import kotlinx.android.synthetic.main.activity_movie_info.*
 import kotlinx.android.synthetic.main.common_toolbar.*
 
 class MovieInfoActivity : AppCompatActivity() {
+
     private val casts = ArrayList<Cast>()
     private val adpter = CastAdapter(casts)
     var url: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_info)
@@ -35,17 +37,13 @@ class MovieInfoActivity : AppCompatActivity() {
         getRemoteData()
     }
 
-
     private fun getRemoteData() {
-
         val progressDialog = ProgressDialog(this).apply { setCancelable(false);setMessage(getString(R.string.loading)) }
         progressDialog.show()
-
         DoubanRetrofit.create(MovieDetailService::class.java).getMovieDetail(intent.getStringExtra(MOVIE_ID))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-
                     it.directors.forEach {
                         val cast = Cast(it.alt, it.avatars, it.name, it.id, ROLE_DIRECTOR)
                         casts.add(cast)
@@ -58,7 +56,6 @@ class MovieInfoActivity : AppCompatActivity() {
                     adpter.notifyDataSetChanged()
                     toolbar.title = it.title //标题
                     tvSummary.text = it.summary  //摘要
-
                     val set = HashSet<String>(it.genres)
                     set.forEachIndexed { index, s ->
                         if (index != set.size - 1) {
@@ -94,8 +91,6 @@ class MovieInfoActivity : AppCompatActivity() {
         linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
         recyclerViewAMI.layoutManager = linearLayoutManager
         recyclerViewAMI.adapter = adpter
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -26,33 +26,30 @@ const val MOVIE_NAME = "MOVIE_NAME"
 const val MOVIE_RATING = "MOVIE_RATING"
 
 class CommentActivity : AppCompatActivity() {
+
     lateinit var movieImageUrl: String
     lateinit var movieName: String
     lateinit var menu: Menu
     var movieRating: Float = 0f
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_comment)
         initView()
         handleIntentData()
-
     }
 
     private fun handleIntentData() {
         val serializable = intent.getSerializableExtra(MOVIE_SUBJECT)
-
         if (serializable is DBSubject) {
             movieImageUrl = serializable.imageUrl
             movieName = serializable.movieName
             movieRating = serializable.rating
         } else if (serializable is Subject) {
-
             movieImageUrl = serializable.images.large
             movieName = serializable.title
             movieRating = serializable.rating.average.toFloat()
         }
-
-
         Glide.with(this).load(movieImageUrl).asBitmap().into(object : SimpleTarget<Bitmap>() {
             override fun onResourceReady(resource: Bitmap?, glideAnimation: GlideAnimation<in Bitmap>?) {
                 ivMoviePosterAR.setImageBitmap(resource)
@@ -68,7 +65,6 @@ class CommentActivity : AppCompatActivity() {
         ctlAR.title = movieName
         rbMovieRateAR.rating = movieRating / 2
         tvMovieRateAR.text = movieRating.toString()
-
     }
 
     private fun initView() {
@@ -80,7 +76,6 @@ class CommentActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         this.menu = menu
-
         val list = DataSupport.where("movieId=?", intent.getStringExtra(MOVIE_ID)).find(DBSubject::class.java)
         if (!list.isEmpty()) {
             menuInflater.inflate(R.menu.menu_activity_comment_collected, menu)
@@ -91,7 +86,6 @@ class CommentActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         when (item.itemId) {
             android.R.id.home -> onBackPressed()
             R.id.action_collect -> {
@@ -101,7 +95,6 @@ class CommentActivity : AppCompatActivity() {
                 menu.clear()
                 menuInflater.inflate(R.menu.menu_activity_comment_collected, menu)
             }
-
             R.id.action_cancel_collection -> {
                 Snackbar.make(toolbarAR, getText(R.string.cancel_collect_success), Snackbar.LENGTH_SHORT).show()
                 DataSupport.deleteAll(DBSubject::class.java, "movieId=?", intent.getStringExtra(MOVIE_ID))
@@ -118,4 +111,5 @@ class CommentActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
 }

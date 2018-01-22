@@ -17,13 +17,11 @@ import io.reactivex.schedulers.Schedulers
 class SearchActivityModel : SearchActivityContract.Model {
     override fun getMovePrevBeanByTag(tag: String, start: Int): Observable<MoviePrevBean> {
         return DoubanRetrofit.create(MovieTagSearchService::class.java).getTagMovie(tag, start)
-
     }
 
     override fun getMovePrevBeanByQ(q: String, start: Int): Observable<MoviePrevBean> {
         return DoubanRetrofit.create(MovieSearchService::class.java).getSearchMovie(q, start)
     }
-
 
 }
 
@@ -32,7 +30,6 @@ class SearchActivityPresenter(private val view: SearchActivityContract.View) : S
     private val model: SearchActivityContract.Model by lazyOf(SearchActivityModel())
 
     fun loadFirstTagMovies(tag: String) {
-
         view.showProgressDialog()
         view.hideTagBox()
         model.getMovePrevBeanByTag(tag, 0)
@@ -48,7 +45,6 @@ class SearchActivityPresenter(private val view: SearchActivityContract.View) : S
                     }
 
                     override fun onError(e: Throwable) {
-
                         view.hideProgressDialog()
                         view.showServerError()
                     }
@@ -56,9 +52,7 @@ class SearchActivityPresenter(private val view: SearchActivityContract.View) : S
                     override fun onNetWorkNotAvailable() {
                         view.hideProgressDialog()
                         view.showNetworkError()
-
                     }
-
                 })
     }
 
@@ -69,7 +63,6 @@ class SearchActivityPresenter(private val view: SearchActivityContract.View) : S
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : MyObserver<List<Subject>>() {
                     override fun onNext(t: List<Subject>) {
-
                         view.hideProgressDialog()
                         if (t.isEmpty()) {
                             view.hideProgressDialog()
@@ -92,7 +85,6 @@ class SearchActivityPresenter(private val view: SearchActivityContract.View) : S
                         view.hideProgressBar()
                         view.disableOnScrollListener()
                     }
-
                 })
     }
 
@@ -119,7 +111,6 @@ class SearchActivityPresenter(private val view: SearchActivityContract.View) : S
                                 view.showNewestSearchResult(t)
                                 view.hideProgressBar()
                                 view.disableOnScrollListener()
-
                             } else {
                                 view.showNewestSearchResult(t)
                                 view.showProgressBar()
@@ -150,7 +141,6 @@ class SearchActivityPresenter(private val view: SearchActivityContract.View) : S
     fun loadMoreQMovies(q: String, start: Int) {
 
         if (!q.isBlank()) {
-
             model.getMovePrevBeanByQ(q, start)
                     .map { it.subjects }
                     .subscribeOn(Schedulers.io())
@@ -159,7 +149,6 @@ class SearchActivityPresenter(private val view: SearchActivityContract.View) : S
                         override fun onNext(t: List<Subject>) {
                             view.hideProgressDialog()
                             if (t.isEmpty()) {
-
                                 view.snackNoMoreFilm()
                                 view.disableOnScrollListener()
                                 view.hideProgressBar()
@@ -181,7 +170,6 @@ class SearchActivityPresenter(private val view: SearchActivityContract.View) : S
                             view.hideProgressBar()
                             view.disableOnScrollListener()
                         }
-
                     })
         }
     }
