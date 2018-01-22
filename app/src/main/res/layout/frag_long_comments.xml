@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mRecyclerViewLongComments"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:fastScrollEnabled="false">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/l_tv_no_comments"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:gravity="center"
+        android:text="@string/no_long_comments" />
+
+    <TextView
+        android:id="@+id/l_tv_server_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:gravity="center"
+        android:text="@string/server_error"/>
+
+    <TextView
+        android:id="@+id/l_tv_network_error"
+        android:layout_width="match_parent"
+        android:visibility="invisible"
+        android:gravity="center"
+        android:layout_height="match_parent"
+        android:text="@string/network_connecting_error"/>
+
+</FrameLayout>

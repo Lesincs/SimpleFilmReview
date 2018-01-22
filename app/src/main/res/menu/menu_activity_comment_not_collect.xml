@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_collect"
+      android:icon="@drawable/ic_not_collect"
+        android:title="@string/add_to_collection"
+        app:showAsAction="always" />
+    <item
+        android:title="@string/movie_detail"
+        android:id="@+id/action_details"
+        android:icon="@drawable/ic_detail"
+        android:orderInCategory="110"
+        app:showAsAction="always"
+        >
+    </item>
+</menu>

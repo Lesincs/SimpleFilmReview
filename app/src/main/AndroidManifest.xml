@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="august.lesincs.simplefilmreview">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".base.MyApp"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|fontScale|locale">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".search.SearchActivity"
+            android:configChanges="orientation|screenSize|fontScale|locale"
+            android:windowSoftInputMode="stateVisible" />
+
+        <activity
+            android:name=".appinfo.InfoActivity"
+            android:configChanges="orientation|screenSize|fontScale|locale" />
+
+        <activity
+            android:name=".collection.CollectionActivity"
+            android:configChanges="orientation|screenSize|fontScale|locale" />
+
+        <activity
+            android:name=".movieinfo.MovieInfoActivity"
+            android:configChanges="orientation|screenSize|fontScale|locale" />
+
+        <activity
+            android:name=".castinfo.CastInfoActivity"
+            android:configChanges="orientation|screenSize|fontScale|locale" />
+
+        <activity
+            android:name=".moviecomment.CommentActivity"
+            android:configChanges="orientation|screenSize|fontScale|locale"
+            android:theme="@style/CommentActivityTheme" />
+    </application>
+
+</manifest>

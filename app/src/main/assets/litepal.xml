@@ -1,0 +1,10 @@
+<litepal>
+    <dbname value="simple_film_review_db" />
+
+    <version value="2" />
+
+    <list>
+        <mapping class="august.lesincs.simplefilmreview.bean.DBSubject"/>
+    </list>
+
+</litepal>

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.flexbox.FlexboxLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tag_box"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    app:alignContent="stretch"
+    app:alignItems="stretch"
+    app:flexDirection="row"
+    app:flexWrap="wrap"
+    app:justifyContent="space_between"
+    app:showDivider="beginning|end">
+
+    <TextView
+        android:id="@+id/tag_feature"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/bg_movie_tag"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:tag="@string/tag_feature"
+        android:paddingRight="15dp"
+        android:text="@string/tag_feature"
+        android:textColor="@android:color/holo_red_light" />
+
+    <TextView
+        android:id="@+id/tag_affection"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:tag="@string/tag_affection"
+        android:layout_margin="5dp"
+        android:background="@drawable/bg_movie_tag"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="@string/tag_affection"
+        android:textColor="@android:color/holo_red_light" />
+
+    <TextView
+        android:id="@+id/tag_comedy"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/bg_movie_tag"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:tag="@string/tag_comedy"
+        android:text="@string/tag_comedy"
+        android:textColor="@android:color/holo_red_light" />
+
+    <TextView
+        android:id="@+id/tag_science_fiction"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/bg_movie_tag"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:tag="@string/tag_science_fiction"
+        android:paddingRight="15dp"
+        android:text="@string/tag_science_fiction"
+        android:textColor="@android:color/holo_red_light" />
+
+    <TextView
+        android:id="@+id/tag_action"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:tag="@string/tag_action"
+        android:background="@drawable/bg_movie_tag"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="@string/tag_action"
+        android:textColor="@android:color/holo_red_light" />
+
+    <TextView
+        android:id="@+id/tag_suspense"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:tag="@string/tag_suspense"
+        android:background="@drawable/bg_movie_tag"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="@string/tag_suspense"
+        android:textColor="@android:color/holo_red_light" />
+
+    <TextView
+        android:id="@+id/tag_crime"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:tag="@string/tag_crime"
+        android:background="@drawable/bg_movie_tag"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="@string/tag_crime"
+        android:textColor="@android:color/holo_red_light" />
+
+
+    <TextView
+        android:id="@+id/tag_dracula"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:tag="@string/tag_dracula"
+        android:layout_margin="5dp"
+        android:background="@drawable/bg_movie_tag"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="@string/tag_dracula"
+        android:textColor="@android:color/holo_red_light" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/bg_movie_tag"
+        android:gravity="center"
+        android:tag="@string/tag_youth"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="@string/tag_youth"
+        android:textColor="@android:color/holo_red_light" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/bg_movie_tag"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:tag="@string/tag_encouragement"
+        android:paddingRight="15dp"
+        android:text="@string/tag_encouragement"
+        android:textColor="@android:color/holo_red_light" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/bg_movie_tag"
+        android:gravity="center"
+        android:tag="@string/tag_war"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="@string/tag_war"
+        android:textColor="@android:color/holo_red_light" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/bg_movie_tag"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:tag="@string/tag_literary"
+        android:paddingRight="15dp"
+        android:text="@string/tag_literary"
+        android:textColor="@android:color/holo_red_light" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/bg_movie_tag"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:tag="@string/tag_black_humor"
+        android:paddingRight="15dp"
+        android:text="@string/tag_black_humor"
+        android:textColor="@android:color/holo_red_light" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/bg_movie_tag"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:tag="@string/tag_biographical"
+        android:paddingRight="15dp"
+        android:text="@string/tag_biographical"
+        android:textColor="@android:color/holo_red_light" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/bg_movie_tag"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:tag="@string/tag_music"
+        android:paddingRight="15dp"
+        android:text="@string/tag_music"
+        android:textColor="@android:color/holo_red_light" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/bg_movie_tag"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:tag="@string/tag_family"
+        android:paddingRight="15dp"
+        android:text="@string/tag_family"
+        android:textColor="@android:color/holo_red_light" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/bg_movie_tag"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:tag="@string/tag_classic"
+        android:text="@string/tag_classic"
+        android:textColor="@android:color/holo_red_light" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/bg_movie_tag"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:tag="@string/tag_America"
+        android:paddingRight="15dp"
+        android:text="@string/tag_America"
+        android:textColor="@android:color/holo_red_light" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/bg_movie_tag"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:tag="@string/tag_Mainland"
+        android:text="@string/tag_Mainland"
+        android:textColor="@android:color/holo_red_light" />
+</com.google.android.flexbox.FlexboxLayout>

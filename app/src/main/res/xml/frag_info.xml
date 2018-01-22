@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.preference.PreferenceCategory android:title="@string/category_app">
+
+
+        <android.support.v7.preference.Preference
+            android:title="@string/version_title"
+            android:summary="@string/version_summary"/>
+        <android.support.v7.preference.Preference
+            android:title="@string/short_introduction_title"
+            android:summary="@string/short_introduction_summary" />
+
+        <android.support.v7.preference.Preference
+            android:title="@string/coming_soon_title"
+            android:summary="@string/coming_soon_summary" />
+
+        <android.support.v7.preference.Preference
+            android:title="@string/coming_soon_title"
+            android:summary="@string/coming_soon_summary" />
+
+        <android.support.v7.preference.Preference
+            android:key="open_source"
+            android:title="@string/open_source_title"
+            android:summary="@string/open_source_summary" />
+    </android.support.v7.preference.PreferenceCategory>
+
+
+    <android.support.v7.preference.PreferenceCategory android:title="@string/category_author">
+
+
+        <android.support.v7.preference.Preference
+            android:title="@string/author_name_title"
+            android:summary="@string/author_name_summary"/>
+        <android.support.v7.preference.Preference
+            android:title="@string/GMail_title"
+            android:key="GMail"
+            android:summary="@string/GMail_summary" />
+
+        <android.support.v7.preference.Preference
+            android:title="@string/QQMail_title"
+            android:key="QQMail"
+            android:summary="@string/QQMail_summary" />
+
+        <android.support.v7.preference.Preference
+            android:key="github_address"
+            android:title="@string/github_address_title"
+            android:summary="@string/github_address_summary" />
+    </android.support.v7.preference.PreferenceCategory>
+
+    </android.support.v7.preference.PreferenceScreen>

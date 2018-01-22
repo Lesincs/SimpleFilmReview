@@ -1,0 +1,90 @@
+<resources>
+    <string name="app_name">简影</string>
+    <string name="title_activity_movie_detail">MovieDetailActivity</string>
+    <string name="action_settings">Settings</string>
+    //info
+    <string name="category_app">简单影评</string>
+    <string name="version_title">版本</string>
+    <string name="version_summary">2.1.22</string>
+    <string name="short_introduction_title">简介</string>
+    <string name="short_introduction_summary">kotlin初探,一款简单的看影评的软件,界面参照甘豆影评</string>
+    <string name="coming_soon_title">待实现</string>
+    <string name="coming_soon_summary">*长评优化\n*未知&#8230;</string>
+    <string name="open_source_title">开放源代码,来波star吧</string>
+    <string name="open_source_summary">https://github.com/Lesincs/SimpleFilmReview</string>
+    <string name="github_address_title">在Github上关注我</string>
+    <string name="github_address_summary">https://github.com/Lesincs</string>
+
+    <string name="category_author">作者</string>
+    <string name="author_name_title">cs丶</string>
+    <string name="author_name_summary">萌新开发,欢迎交流探讨</string>
+    <string name="GMail_title">GoogleMail</string>
+    <string name="GMail_summary">Lesincs923@gmail.com</string>
+    <string name="QQMail_title">QQ邮箱</string>
+    <string name="QQMail_summary">lesincs@foxmail.com</string>
+
+    <string name="mail_to_GMail">mailto:Lesincs923@gmail.com</string>
+    <string name="mail_to_QQMail">mailto:lesincs@foxmail.com</string>
+
+    <string name="feedback_subject">简单影评反馈</string>
+    <string name="build_model">设备型号:</string>
+    <string name="build_version">安卓版本:</string>
+    <string name="no_mail_app">没有找到对应app</string>
+
+
+    //movie_detail
+    <string name="short_comments">短评</string>
+    <string name="long_comments">影评</string>
+    <string name="no_more_short_comments">没有更多的短评啦</string>
+    <string name="no_more_long_comments">没有更多的影评啦</string>
+    <string name="load_comments_error">加载评论失败!</string>
+    <string name="no_short_comments">暂无短评</string>
+    <string name="no_long_comments">暂无影评</string>
+    <string name="click_to_show_all_comment">点击查看全文</string>
+    <string name="network_connecting_error">网络连接失败!</string>
+    <string name="server_error">服务器异常!</string>
+    <string name="movie_type_base">类型: </string>
+    <string name="movie_actors_base">演员: </string>
+    <string name="add_to_collection">加入收藏</string>
+    <string name="movie_detail">电影详情</string>
+    <string name="collect_success">收藏成功!</string>
+    <string name="cancel_collect_success">取消收藏!</string>
+    //movie_prev
+    <string name="tab_douban250">豆瓣250</string>
+    <string name="tab_trending">正在热映</string>
+    <string name="tab_coming_soon">即将上映</string>
+    <string name="no_more_movie">已经没有更多电影啦</string>
+    <string name="retry_to_quit_app">再按一次退出</string>
+    //search_activity
+    <string name="no_search_result">无搜索结果</string>
+    <string name="search_hint">搜索</string>
+    <string name="loading">加载中...</string>
+
+    <string name="toolbar_title_info">关于</string>
+    <string name="toolbar_title_collection">收藏</string>
+    <string name="toolbar_title_movie">简单影评</string>
+    <string name="toolbar_title_search">查询</string>
+
+
+    <string name="tag_feature">剧情</string>
+    <string name="tag_affection">爱情</string>
+    <string name="tag_comedy">喜剧</string>
+    <string name="tag_science_fiction">科幻</string>
+    <string name="tag_action">动作</string>
+    <string name="tag_suspense">悬疑</string>
+    <string name="tag_crime">犯罪</string>
+    <string name="tag_dracula">恐怖</string>
+    <string name="tag_youth">青春</string>
+    <string name="tag_encouragement">励志</string>
+    <string name="tag_war">战争</string>
+    <string name="tag_literary">文艺</string>
+    <string name="tag_black_humor">黑色幽默</string>
+    <string name="tag_biographical">传记</string>
+    <string name="tag_music">音乐</string>
+    <string name="tag_family">家庭</string>
+    <string name="tag_classic">经典</string>
+    <string name="tag_America">美国</string>
+    <string name="tag_Mainland">大陆</string>
+
+    <string name="open_whth_browser">用浏览器打开</string>
+</resources>

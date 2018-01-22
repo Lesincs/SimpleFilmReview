@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1E8AE8</color>
+    <color name="colorPrimaryDark">#176eb9</color>
+    <color name="colorAccent">#CD4F39</color>
+    <color name="lemon">#CDDC39</color>
+    <color name="default_background">#827717</color>
+    <color name="actionbar_light">#757575</color>
+</resources>

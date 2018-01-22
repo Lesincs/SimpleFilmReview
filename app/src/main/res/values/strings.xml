@@ -1,0 +1,90 @@
+<resources>
+    <string name="app_name">SimpleFilmReview</string>
+    <string name="title_activity_movie_detail">MovieDetailActivity</string>
+    <string name="action_settings">Settings</string>
+    //info
+    <string name="category_app">SimpleFilmReview</string>
+    <string name="version_title">Version</string>
+    <string name="version_summary">2.1.22</string>
+    <string name="short_introduction_title">Introduction</string>
+    <string name="short_introduction_summary">kotlin初探,一款简单的看影评的软件,界面参照甘豆影评</string>
+    <string name="coming_soon_title">To Achieve</string>
+    <string name="coming_soon_summary">*长评优化\n*未知&#8230;</string>
+    <string name="open_source_title">Open Source</string>
+    <string name="open_source_summary">https://github.com/Lesincs/SimpleFilmReview</string>
+    <string name="github_address_title">Github Address</string>
+    <string name="github_address_summary">https://github.com/Lesincs</string>
+
+    <string name="category_author">Author</string>
+    <string name="author_name_title">cs丶</string>
+    <string name="author_name_summary">萌新开发,欢迎交流探讨</string>
+    <string name="GMail_title">GoogleMail</string>
+    <string name="GMail_summary">Lesincs923@gmail.com</string>
+    <string name="QQMail_title">QQMail</string>
+    <string name="QQMail_summary">lesincs@foxmail.com</string>
+
+    <string name="mail_to_GMail">mailto:Lesincs923@gmail.com</string>
+    <string name="mail_to_QQMail">mailto:lesincs@foxmail.com</string>
+
+    <string name="feedback_subject">SimpleFilmReviewFeedback</string>
+    <string name="build_model">Model:</string>
+    <string name="build_version">AndroidVersion:</string>
+    <string name="no_mail_app">No Relevant Apps</string>
+
+
+    //movie_detail
+    <string name="short_comments">SHORTCOMMENTS</string>
+    <string name="long_comments">LONGCOMMENTS</string>
+    <string name="no_more_short_comments">No More Short Comments</string>
+    <string name="load_comments_error">Load Comments Error!</string>
+    <string name="no_more_long_comments">No More Long Comments</string>
+    <string name="no_short_comments">No ShortComments</string>
+    <string name="no_long_comments">No LongComments</string>
+    <string name="network_connecting_error">Please Check The Network Connection!</string>
+    <string name="server_error">Server Error!</string>
+    <string name="click_to_show_all_comment">Click to show all</string>
+    <string name="movie_type_base">Type: </string>
+    <string name="movie_actors_base">Actors: </string>
+    <string name="add_to_collection">Add to collection</string>
+    <string name="movie_detail">Movie detail</string>
+    <string name="collect_success">Collect Success!</string>
+    <string name="cancel_collect_success">Cancel Collection!</string>
+    //movie_prev
+    <string name="tab_douban250">TOP250</string>
+    <string name="tab_trending">Trending</string>
+    <string name="tab_coming_soon">ComingSoon</string>
+    <string name="no_more_movie">No More Films</string>
+    <string name="retry_to_quit_app">Press again to exit</string>
+    //search_activity
+    <string name="no_search_result">No Search Result</string>
+    <string name="search_hint">search</string>
+    <string name="loading">Loading...</string>
+
+    <string name="toolbar_title_info">About</string>
+    <string name="toolbar_title_collection">Collection</string>
+    <string name="toolbar_title_movie">SimpleFilmReview</string>
+    <string name="toolbar_title_search">Search</string>
+
+
+    <string name="tag_feature">剧情</string>
+    <string name="tag_affection">爱情</string>
+    <string name="tag_comedy">喜剧</string>
+    <string name="tag_science_fiction">科幻</string>
+    <string name="tag_action">动作</string>
+    <string name="tag_suspense">悬疑</string>
+    <string name="tag_crime">犯罪</string>
+    <string name="tag_dracula">恐怖</string>
+    <string name="tag_youth">青春</string>
+    <string name="tag_encouragement">励志</string>
+    <string name="tag_war">战争</string>
+    <string name="tag_literary">文艺</string>
+    <string name="tag_black_humor">黑色幽默</string>
+    <string name="tag_biographical">传记</string>
+    <string name="tag_music">音乐</string>
+    <string name="tag_family">家庭</string>
+    <string name="tag_classic">经典</string>
+    <string name="tag_America">美国</string>
+    <string name="tag_Mainland">大陆</string>
+
+    <string name="open_whth_browser">Open with browser</string>
+</resources>
